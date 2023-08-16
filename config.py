@@ -8,7 +8,7 @@ with open("accounts.txt", "r") as file:
 with open("data/omnix_abi.json", "r") as file:
     OMNIX_ABI = json.load(file)
 
-OMNIX_CONTRACT = "0xd12999440402d30f69e282d45081999412013844"
+OMNIX_CONTRACT = "0x012caeb558dffc053a6a092835a1e7f5c8eeba8b"
 
 CHAIN_ID = {
     "binance": 102,
@@ -20,4 +20,5 @@ CHAIN_ID = {
     "metis": 151,
     "gnosis": 145,
     "nova": 175,
+    "base": 184,
 }

@@ -8,7 +8,7 @@ SLEEP_TO = 300  # second
 #################
 
 SLEEP_BRIDGE = 15  # second
-AMOUNT = 2  # quantity mint and bridge
+AMOUNT = 1  # quantity mint and bridge
 
 BRIDGE_CHAIN = [
     # "test" comment the line if you don't need
@@ -17,8 +17,9 @@ BRIDGE_CHAIN = [
     "polygon",
     "arbitrum",
     "fantom",
-    "moonbeam",
+    # "moonbeam", don't work in this contract
+    "base",
     "metis",
-    "gnosis",
+    # "gnosis", don't work in this contract
     "nova",
 ]

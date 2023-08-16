@@ -100,6 +100,8 @@ class Omnix:
 
         nft_id_list = self.get_nft_id(txn_hash.hex(), quantity)
 
+        bridge_fee = contract.functions.bridgeFee().call()
+
         for j, nft_id in enumerate(nft_id_list):
             chain = random.choice(BRIDGE_CHAIN)
             chain_id = CHAIN_ID[chain]
@@ -107,10 +109,11 @@ class Omnix:
             logger.info(f"[{self.address}] Bridge nft [{nft_id}] to {chain.title()}")
 
             tx_data = {
+                "chainId": self.w3.eth.chain_id,
                 "from": self.address,
                 "gasPrice": self.w3.eth.gas_price,
                 "nonce": self.w3.eth.get_transaction_count(self.address),
-                "value": self.get_lz_fee(chain_id, nft_id)
+                "value": bridge_fee + self.get_lz_fee(chain_id, nft_id),
             }
 
             transaction = contract.functions.sendFrom(
