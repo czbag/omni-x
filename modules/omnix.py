@@ -7,17 +7,17 @@ from web3 import Web3
 from eth_account import Account as EthereumAccount
 from web3.exceptions import TransactionNotFound
 
-from config import RPC, OMNIX_CONTRACT, OMNIX_ABI, CHAIN_ID
-from settings import BRIDGE_CHAIN, SLEEP_BRIDGE
+from config import RPC, OMNIX_ABI, CHAIN_ID
+from settings import BRIDGE_CHAIN, SLEEP_BRIDGE, OMNIX_CONTRACT
 from eth_typing import Address, ChecksumAddress
 
 
 class Omnix:
-    def __init__(self, private_key: str) -> None:
+    def __init__(self, private_key: str, chain: str) -> None:
         self.private_key = private_key
-        self.explorer = "https://optimistic.etherscan.io/tx/"
+        self.explorer = RPC[chain]["explorer"]
 
-        self.w3 = Web3(Web3.HTTPProvider(random.choice(RPC)))
+        self.w3 = Web3(Web3.HTTPProvider(random.choice(RPC[chain]["rpc"])))
         self.account = EthereumAccount.from_key(private_key)
         self.address = self.account.address
 

@@ -1,0 +1,16 @@
+{
+  "optimism": {
+    "rpc": [
+      "https://rpc.ankr.com/optimism"
+    ],
+    "explorer": "https://optimistic.etherscan.io/tx/",
+    "token": "ETH"
+  },
+  "base": {
+    "rpc": [
+      "https://rpc.ankr.com/base"
+    ],
+    "explorer": "https://basescan.org/tx/",
+    "token": "ETH"
+  }
+}

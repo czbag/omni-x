@@ -3,7 +3,7 @@ import time
 
 from modules import Omnix
 from config import ACCOUNTS
-from settings import RANDOM_WALLET, SLEEP_TO, SLEEP_FROM, IS_SLEEP, AMOUNT
+from settings import RANDOM_WALLET, SLEEP_TO, SLEEP_FROM, IS_SLEEP, AMOUNT, SOURCE_CHAIN
 
 
 def main():
@@ -11,7 +11,7 @@ def main():
         random.shuffle(ACCOUNTS)
 
     for j, key in enumerate(ACCOUNTS):
-        omnix = Omnix(key)
+        omnix = Omnix(key, SOURCE_CHAIN)
         omnix.bridge(AMOUNT)
 
         if j + 1 < len(ACCOUNTS) and IS_SLEEP:
